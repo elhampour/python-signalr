@@ -20,7 +20,7 @@ hub_connection = HubConnectionBuilder()\
 hub_connection.on_open(lambda: print("connection opened and handshake received ready to send messages"))
 hub_connection.on_close(lambda: print("connection closed"))
 
-hub_connection.on("ReceiveMessage", print)
+hub_connection.on("UserMessage", print)
 hub_connection.start()
 message = None
 
@@ -29,7 +29,7 @@ message = None
 while message != "exit()":
     message = input(">> ")
     if message is not None and message != "" and message != "exit()":
-        hub_connection.send("SendMessage")
+        hub_connection.send("UserMessage",["5675r76"])
 
 hub_connection.stop()
 
